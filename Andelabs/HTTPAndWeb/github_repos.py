@@ -18,9 +18,11 @@ class GitHubRepos:
                 print('[{}]\t\t| {}'.format(repo['language'], repo['name']))
 
         else:
-            print('Error {0}: {1}'.format(response.status_code, response.text))
+            ans = response.json()
+            err = ans['message']
+            print('Error {0}: {1}'.format(response.status_code, err))
 
 
 if __name__ == '__main__':
-    print(GitHubRepos('andela').status_code)
+    print(GitHubRepos('kenlebu').status_code)
 
