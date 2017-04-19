@@ -13,9 +13,9 @@ class GitHubRepos:
         self.status_code = response.status_code
         if self.status_code == 200:
             
-            print('Language\t\t| Repository name')
+            print('Language  :   Repository name')
             for repo in response.json():
-                print('[{}]\t\t| {}'.format(repo['language'], repo['name']))
+                print('[{}]  : {}'.format(repo['language'], repo['name']))
 
         else:
             ans = response.json()
@@ -24,5 +24,6 @@ class GitHubRepos:
 
 
 if __name__ == '__main__':
-    print(GitHubRepos('kenlebu').status_code)
+    username = input("Enter a GitHub username: ")
+    GitHubRepos(username)
 
