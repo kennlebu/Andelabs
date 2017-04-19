@@ -2,8 +2,9 @@ class WordCount:
     @staticmethod
     def words(sentence):
         dictionary = {}
-        words_list = sentence.strip("\t\n\r\v\f").split() #spliting at white spaces characters to make a list of the words
+        words_list = sentence.split() #spliting at white spaces characters to make a list of the words
         counter = 0
+        
         """ Looping through the words, changing the numbers to int objects """
         for each in words_list:
             try:
@@ -17,6 +18,3 @@ class WordCount:
             else: dictionary[word] = 1
 
         return dictionary
-
-
-print(WordCount.words("Hello 1 2 testing"))
