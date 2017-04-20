@@ -3,27 +3,26 @@ class BinarySearch(list):
         self.list_length = a
         self.step = b
         self.array_item = b
-        self.array = []
         self.count = 0
         for counter in range(self.list_length):
-            self.array.append(self.array_item)
+            self.append(self.array_item)
             self.array_item += self.step
 
-        self.length = len(self.array)
-        self.array = self.sort_array(self.array)
+        self.length = len(self)
+        self = self.sort_array(self)
             
 
     def search(self, value):
-        low = self.array[0]
-        high = self.array[-1]
+        low = self[0]
+        high = self[-1]
         while low <= high:
             self.count += 1
             middle = (low + high) // 2
-            if self.array[middle] > value:
+            if self[middle] > value:
                 high = middle -1
-            elif self.array[middle] < value:
+            elif self[middle] < value:
                 low = middle + 1
-            else: return {'count':self.count, 'index': self.array.index(value)}
+            else: return {'count':self.count, 'index': self.index(value)}
         
 
     def sort_array(self, array):
@@ -39,6 +38,7 @@ class BinarySearch(list):
 
         return array
 
-b = BinarySearch(20, 1)
-#print(b[19])
+b = BinarySearch(100, 10)
+print(b[0])
 #print(b.search(5))
+#print(b)
