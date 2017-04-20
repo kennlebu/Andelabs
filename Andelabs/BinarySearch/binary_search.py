@@ -10,7 +10,7 @@ class BinarySearch:
             self.array_item += self.step
 
         self.length = len(self.array)
-        self.index = (self.length - 1) // 2
+        self.index = ((self.length) // 2) - 1
         self.array = self.sort_array(self.array)
             
 
@@ -22,15 +22,15 @@ class BinarySearch:
             middle = (low + high) // 2
             if self.array[middle] > value:
                 high = middle -1
-                self.index = self.index // 2
+                self.index = self.index - ((high - middle)//self.step)
             elif self.array[middle] < value:
                 low = middle + 1
-                self.index = self.index + (self.index // 2)
+                self.index = self.index + ((middle - low)//self.step)
             else: return {'count':self.count, 'index': self.index + 1}
         
 
     def sort_array(self, array):
-        """ Returns a sorted list so that binary search can be done """
+        """ Sorts and returns the list passed to it """
 
         for i in range(len(array)-1, 0, -1):
             maxpos = 0
@@ -43,4 +43,4 @@ class BinarySearch:
         return array
 
 b = BinarySearch(20, 1)
-print(b.search(20))
+print(b.search(5))
