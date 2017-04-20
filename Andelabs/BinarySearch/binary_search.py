@@ -10,7 +10,6 @@ class BinarySearch:
             self.array_item += self.step
 
         self.length = len(self.array)
-        self.index = ((self.length) // 2) - 1
         self.array = self.sort_array(self.array)
             
 
@@ -22,11 +21,9 @@ class BinarySearch:
             middle = (low + high) // 2
             if self.array[middle] > value:
                 high = middle -1
-                self.index = self.index - ((high - middle)//self.step)
             elif self.array[middle] < value:
                 low = middle + 1
-                self.index = self.index + ((middle - low)//self.step)
-            else: return {'count':self.count, 'index': self.index + 1}
+            else: return {'count':self.count, 'index': self.array.index(value)}
         
 
     def sort_array(self, array):
