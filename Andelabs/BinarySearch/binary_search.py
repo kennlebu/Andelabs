@@ -13,16 +13,38 @@ class BinarySearch(list):
             
 
     def search(self, value):
-        low = self[0]
-        high = self[-1]
-        while low <= high:
-            self.count += 1
-            middle = (low + high) // 2
-            if self[middle] > value:
-                high = middle -1
-            elif self[middle] < value:
-                low = middle + 1
-            else: return {'count':self.count, 'index': self.index(value)}
+       low = 0
+       high = len(self) - 1
+       index = 0
+       found = False
+       counter = 0
+       
+       if value == self[low]:
+           found = True
+           index = low
+       elif value == self[high]:
+           found = True
+           index = high
+
+       # Return -1 as index if the value doesnt exist in the list
+       if value not in self:
+           found = True
+           index = -1
+           
+       # binary search for the item
+       while low <= high and not found:
+           counter += 1 # Register an iteration
+           middle = (low + high) //    # Get the midpoint
+           if self[middle] == value:
+               found = True
+               index = middle
+           else:
+               if value < self[middle]:
+                   high = middle - 1
+               else:
+                   low = middle + 1
+                   
+       return {'count': counter, 'index': index}
         
 
     def sort_array(self, array):
@@ -38,7 +60,7 @@ class BinarySearch(list):
 
         return array
 
-b = BinarySearch(100, 10)
-print(b[0])
-#print(b.search(5))
+b = BinarySearch(20, 2)
+#print(b[16])
+print(b.search(40))
 #print(b)
