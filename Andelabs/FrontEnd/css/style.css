@@ -34,6 +34,13 @@ html {
 .navli {
     display: inline-block;
     font-family: Arial;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.navli img {
+    border-radius: 50%;
 }
 
 .navli a {
@@ -48,10 +55,7 @@ html {
 }
 
 #icon {
-    margin-top: 10px;
-    padding-left: 15px;
-    bottom: 0;
-    position: relative;
+    padding-left: 10px;
 }
 
 .searchbar {

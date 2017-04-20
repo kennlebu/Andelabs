@@ -1,4 +1,4 @@
-class BinarySearch:
+class BinarySearch(list):
     def __init__(self, a, b):
         self.list_length = a
         self.step = b
@@ -40,4 +40,5 @@ class BinarySearch:
         return array
 
 b = BinarySearch(20, 1)
-print(b.search(5))
+#print(b[19])
+#print(b.search(5))
