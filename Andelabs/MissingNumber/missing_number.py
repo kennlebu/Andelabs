@@ -5,6 +5,8 @@
 class MissingNumber:
     @staticmethod
     def find_missing(list1, list2):
+        if not isinstance(list1, list) or not isinstance(list1, list):
+            return 'Inputs must be lists'
         if len(list1) == 0 and len(list2) == 0:
             return 0
 
