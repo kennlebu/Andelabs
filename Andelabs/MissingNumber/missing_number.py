@@ -7,6 +7,8 @@ class MissingNumber:
     def find_missing(list1, list2):
         if not isinstance(list1, list) or not isinstance(list1, list):
             return 'Inputs must be lists'
+        if len(list2) - len(list1) > 1:
+            return 'More than one missing number'
         if len(list1) == 0 and len(list2) == 0:
             return 0
 

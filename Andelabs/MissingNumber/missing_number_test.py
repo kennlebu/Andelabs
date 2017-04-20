@@ -31,6 +31,10 @@ class MissingNumberTest(unittest.TestCase):
     def test_invalid_input(self):
         self.assertEqual("Inputs must be lists", MissingNumber.find_missing('adc', 1), msg="Should return 'Inputs must be lists' for invalid inputs")
 
+    # Testing for more than one missing number
+    def test_more_missing_numbers(self):
+        self.assertEqual("More than one missing number", MissingNumber.find_missing([1,2,3], [1,2,3,4,5]), msg="Should return 'More than one number missing' for more than one number missing")
+
 
 if __name__ == '__main__':
     unittest.main()
